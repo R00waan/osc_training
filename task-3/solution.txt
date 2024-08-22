@@ -12,19 +12,21 @@ cd ~/project_files
 nano ~/project_files/reports/report1.md
 nano ~/project_files/logs/system.log
 nano ~/project_files/data/data.csv
-tar -cvf logs_backup.tar /home/osc/project_files/logs
+tar -cvf logs_backup.tar /home/osc/project_files/logs/*
 mv logs_backup.tar /home/osc/project_files
-tae -xvf logs_backup.tar -C /home/osc/project_files/logs
+tar -xvf logs_backup.tar -C /home/osc/project_files/logs
 find ~/ -type f -name "*.md"
 find ~/project_files -type f -name "*.log"
 find . -type f -name"file1.pdf"
 find . -type f -iname "*.pdf"
 find ~/ project_files/logs -type f
 ln -s data/data.csv link_data.csv
+echo " new data testing " >  link_data.csv
 cat data/data.csv
 rm link_data.csv
 touch summary.txt
 echo"summary star">summary.txt
+date >> summary.txt
 wc -l summary.txt | tee -a summary.txt
 wc -w report1.md
 wc -m system.log | tee -a summary.txt
